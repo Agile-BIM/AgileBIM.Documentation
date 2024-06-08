@@ -29,7 +29,14 @@ jobs:
         with:
           python-version: '3.12'
           cache: 'pip' # caching pip dependencies
-      - run: python -m pip install -r requirements.txt
+      - name: Load Requirements
+        run: python -m pip install -r requirements.txt
       - name: Build
-        # Outputs to the './site' directory
-        run: python -m mkdocs gh-deploy --quiet --ignore-version --config-file ./mkdocs_base.yml --remote-branch Deploy
+        run: python -m mkdocs build --quiet --config-file ./mkdocs_base.yml
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: Deploy
+          build_dir: ./site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
