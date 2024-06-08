@@ -1,0 +1,105 @@
+site_name: Agile-BIM Documentation
+use_directory_urls: false
+site_url: ""
+docs_dir: docs
+site_dir: site
+dev_addr: 127.0.0.1:8500
+
+plugins:
+  - search
+  - glightbox:
+      skip_classes:
+        - skip-lightbox
+  - table-reader
+  - awesome-pages
+  - mkdocs-video:
+      is_video: True
+      video_autoplay: False
+extra:
+    generator: false
+extra_css:
+  - assets/abim.css
+theme:
+  icon:
+    admonition:
+      note: material/note-text
+      info: material/information-outline
+      tip: material/lightbulb-on
+      question: material/head-question
+      warning: material/alert
+      error: material/close-thick
+      bolt: material/lightning-bolt
+      example: material/beaker
+      quote: material/comment-quote
+  name: material
+  custom_dir: overrides
+  include_search_page: true
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - content.tooltips
+    - content.code.copy
+    - content.code.annotate
+    - navigation.sections: true
+    - navigation.expand: false
+    - navigation.indexes
+    - toc.integrate
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+markdown_extensions:
+  - abbr
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      toc_depth: 1-3
+  - admonition
+  - footnotes
+  - pymdownx.mark
+  - pymdownx.details
+  - pymdownx.betterem
+  - pymdownx.tabbed
+  - pymdownx.saneheaders
+  - pymdownx.b64 # Converts images to Base64
+  - pymdownx.keys
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      linenums: true
+      use_pygments: true
+      auto_title: true
+  - pymdownx.magiclink:
+      hide_protocol: true
+  - pymdownx.caret:
+      smart_insert: true
+      insert: true
+      superscript: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.smartsymbols:
+      trademark: false
+      copyright: false
+      registered: false
+      care_of: false
+      plusminus: true
+      arrows: true
+      notequal: true
+      fractions: true
+      ordinal_numbers: true

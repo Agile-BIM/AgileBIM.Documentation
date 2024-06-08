@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block config %}
+{{ super() }}
+{% if "localsearch" in config["plugins"] %}
+<script src="{{ 'assets/iframe-worker.js' | url }}"></script>
+<script src="{{ 'search/search_index.js' | url }}"></script>
+{% endif %}
+<script src="{{ 'assets/abim-copyclip.js' | url }}"></script>
+<script src="{{ 'assets/abim-link-external.js' | url }}"></script>
+<script src="{{ 'assets/remove-video-anchors.js' | url }}"></script>
+{% endblock %}
